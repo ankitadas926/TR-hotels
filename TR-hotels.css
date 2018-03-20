@@ -1,0 +1,58 @@
+body{
+    
+}
+
+h1{
+    text-align: center;
+    color: #005EB8;
+}
+
+.container{
+    display: table;
+    width:100%;
+}
+
+.filter{
+    display: table-cell;
+    vertical-align: top;
+    color: #005EB8;
+    padding:10px;
+}
+
+.filter div{
+    padding:20px;
+    
+}
+
+.star-filter ul{
+    list-style: none;
+    padding: 0;
+}
+
+.hotel-container {
+    display: table-cell;
+    vertical-align: top;
+    width: 80%;
+}
+
+.sort li{
+    display: inline;
+    float:left;
+    padding:18px;
+    background-color:#FF7802;
+    border:grey;
+    width:19%;
+    font-family: helvetica;
+}
+
+.hotel-details{
+    display:table;
+}
+
+.hotel-image{
+    display:table-cell;
+}
+
+.hotel-text{
+    display:table-cell;
+}

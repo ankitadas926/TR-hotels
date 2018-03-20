@@ -1,0 +1,65 @@
+<head>
+    <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="TR-hotels.css">
+    
+</head>
+<body>
+    <h1>Hotel Search Page</h1>
+    <div class=container>
+        <div class="filter">
+            <h2>Filter By</h2>
+            <div>
+                <div>Hotel Name</div>
+                <input type="text" placeholder="Hotel name">
+            </div>
+            <div class="star-filter">
+                <div >Stars</div>
+                <ul >
+                    <li><input type="checkbox" value="1"/>1 star</li>
+                    <li><input type="checkbox" value="2"/>2 stars</li>
+                    <li><input type="checkbox" value="3"/>3 stars</li>
+                    <li><input type="checkbox" value="4"/>4 stars</li>
+                    <li><input type="checkbox" value="5"/>5 stars</li>
+                    <li><input type="checkbox" value="5"/>unrated</li>
+                </ul>
+
+            </div>
+            <div>
+                <div>TRP Rating</div>
+                <input type="range" min="0" max="50000" value="25000"/>           
+
+            </div>
+            <div>
+                    <div>User Rating</div>
+                    <input type="range" min="0" max="10" value="5"/> 
+                        
+            </div>
+            <div>
+                    <div>Min Cost</div>
+                    <input type="range" min="0" max="50000" value="25000"/> 
+                        
+            </div>
+            
+        </div>
+        <div class="hotel-container">
+            <div class="sort">
+                <ul>
+                    <li>Distance</li>
+                    <li>Stars</li>
+                    <li>Price</li>
+                    <li>Ratings</li>
+                </ul>
+            </div>
+        
+            <div class="hotel-details">
+                <div class="hotel-image"></div>
+                <div class="hotel-text"></div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+<script type="text/javascript" src="TR-hotels.js"></script>
+</body>
