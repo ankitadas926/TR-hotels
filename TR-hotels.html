@@ -9,8 +9,8 @@
         <div class="filter">
             <h2>Filter By</h2>
             <div>
-                <div>Hotel Name</div>
-                <input type="text" placeholder="Hotel name">
+                <div class="hotel-search-name">Hotel Name</div>
+                <input type="text" placeholder="Hotel name" name="hotel-name">
             </div>
             <div class="star-filter">
                 <div >Stars</div>
@@ -51,15 +51,26 @@
                 </ul>
             </div>
         
-            <div class="hotel-details">
-                <div class="hotel-image"></div>
-                <div class="hotel-text"></div>
-
+            <div class="hotel-details-container"></div>
+            <div class="pagination">
+                
+                <div class="previous">&laquo;</div>
+                <ul class="pageNumbers"></ul>
+                <div class="next">&raquo;</div>
+                
+                
+               
             </div>
         </div>
+        
+        
     </div>
 
 
-
+<script type="text/javascript" src="hotels.js"></script>
+<script type="text/javascript" src="pagination.js"></script>
 <script type="text/javascript" src="TR-hotels.js"></script>
+<script type="text/javascript" src="filters.js"></script>
+
+
 </body>
