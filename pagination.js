@@ -27,12 +27,30 @@ function pageNumberCreator(pageBlock){
         }
         
     }
+  
     pageElement.innerHTML=pageListHTML;
+    
+    displayHotels((pageBlock*pagesInDisplay)+1);
+    showCurrentPage((pageBlock*pagesInDisplay)+1);
+  
+
+    if(pageBlock==0){
+        previousPageBlockElement.style.display="none";
+    }
+    else{
+        previousPageBlockElement.style.display="inline";
+    }
+    if(pageBlock==totalPageBlocks-1){
+        nextPageBlockElement.style.display="none";
+    }
+    else{
+        nextPageBlockElement.style.display="inline";
+    }
     
 }
 
 function showCurrentPage(pageNumber){
-            
+           
     for(i=0;i<pageNumList.length;i++){
         if(pageNumList[i].className == "active-page"){
             pageNumList[i].className="";

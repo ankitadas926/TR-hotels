@@ -3,6 +3,8 @@ var filteredHotels = mydata.Establishments;
 var hotelNumberHTML = document.getElementsByClassName("count")[0];
 var hotelDetailsElement = document.getElementsByClassName("hotel-details-container")[0];
 
+
+
 function displayHotels(pageNumber){    
     var hotelDetailsHTML=" ";
     var upperBound = pageNumber*quantity;
@@ -18,8 +20,8 @@ function displayHotels(pageNumber){
         
     hotelDetailsElement.innerHTML = hotelDetailsHTML;
 
-    pageNumberCreator(pageBlock);
-    showCurrentPage(pageNumber);  
+    
+    showCurrentPage(pageNumber);
     hotelNumberHTML.innerHTML=`Showing ${filteredHotels.length} of ${mydata.Establishments.length} Hotels`;    
 }
 
@@ -50,7 +52,7 @@ function showStars(stars){
 }
 
 
-displayHotels(pageNumber);
+pageNumberCreator(pageBlock);
 
  
 
