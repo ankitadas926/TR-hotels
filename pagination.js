@@ -1,5 +1,5 @@
 
-var filteredHotels = mydata.Establishments;
+//var filteredHotels = mydata.Establishments;
 var quantity = 10;
 var pagesInDisplay=10;
 var pageBlock=0;
@@ -29,7 +29,7 @@ function pageNumberCreator(pageBlock){
     }
   
     pageElement.innerHTML=pageListHTML;
-    
+
     displayHotels((pageBlock*pagesInDisplay)+1);
     showCurrentPage((pageBlock*pagesInDisplay)+1);
   

@@ -1,5 +1,5 @@
 
-var filteredHotels = mydata.Establishments;
+var filteredHotels;
 var hotelNumberHTML = document.getElementsByClassName("count")[0];
 var hotelDetailsElement = document.getElementsByClassName("hotel-details-container")[0];
 
@@ -29,7 +29,7 @@ function createHotelDetailsHTML(hotelDetails){
     
     return  `<div class="hotel-details">
                 <div class="hotel-image">
-                    <img src="${hotelDetails.ImageUrl}">
+                    <img src="Images/img1.jpg">
                 </div>
                 <div class="hotel-text">
                     <div>${hotelDetails.Name}</div>
@@ -37,7 +37,7 @@ function createHotelDetailsHTML(hotelDetails){
                 </div>
                 <div class="hotel-cost">
                     <div>Price</div>
-                    <div> &pound;${hotelDetails.MinCost}</div>
+                    <div>&#8377;${hotelDetails.MinCost}</div>
                     <button class="select-hotel">Select</button>
                 </div>
             </div>`;   
@@ -52,7 +52,7 @@ function showStars(stars){
 }
 
 
-pageNumberCreator(pageBlock);
+
 
  
 
