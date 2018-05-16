@@ -8,7 +8,8 @@ var pageNumber = 1;
 var totalPages = 0;
 var totalPageBlocks = 0;
 
-var pageNumList = document.getElementsByClassName("pagination")[0].getElementsByTagName("li");
+var pageinationEl = document.getElementsByClassName("pagination")[0];
+var pageNumList = pageinationEl.getElementsByTagName("li");
 pageElement = document.getElementsByClassName("pageNumbers")[0];
 nextPageBlockElement =document.getElementsByClassName("next")[0];
 previousPageBlockElement =document.getElementsByClassName("previous")[0];
@@ -17,6 +18,12 @@ previousPageBlockElement =document.getElementsByClassName("previous")[0];
 
 function pageNumberCreator(pageBlock){
 
+    if(filteredHotels.length>0 && !document.querySelector(".pagination.show")){
+        pageinationEl.className += " show";
+    }
+    if(filteredHotels.length==0){
+        pageinationEl.className = "pagination";
+    }
     totalPages = Math.ceil(filteredHotels.length/quantity);
     totalPageBlocks = Math.ceil(totalPages/pagesInDisplay);
     pageListHTML ="";

@@ -1,4 +1,5 @@
 var mydata;
+
 function getHotelList(){
     var xhttp= new XMLHttpRequest();
     xhttp.onreadystatechange=function() {
@@ -7,10 +8,12 @@ function getHotelList(){
 
             filteredHotels = mydata.Establishments;
             pageNumberCreator(pageBlock);
+            document.querySelector(".spinner").className = "spinner";
         }
     }
     xhttp.open('GET','https://api.myjson.com/bins/1bgnkq',true);
     xhttp.send();
+    document.querySelector(".spinner").className+= " show";
 
 }
 

@@ -29,7 +29,7 @@ function createHotelDetailsHTML(hotelDetails){
     
     return  `<div class="hotel-details">
                 <div class="hotel-image">
-                    <img src="\\${images[Math.ceil(Math.random()*10)]}">
+                    <img src="${images[Math.ceil(Math.random()*10)]}">
                 </div>
                 <div class="hotel-text">
                     <div>${hotelDetails.Name}</div>

@@ -137,7 +137,13 @@ i.fas.fa-star {
     text-align: center;
     width : 96%;
     background-color: white;
+    display: none;
 }
+
+.pagination.show{
+    display: block;
+}
+
 .pagination div, .pagination li {
     color: black;
     padding: 8px 16px;
@@ -154,4 +160,32 @@ i.fas.fa-star {
 .active-page{
     border: solid 1px;
     background-color: #676464;
+}
+
+/*spinner*/
+.spinner {
+    font-size: 25px;
+    text-align:  center;
+    display: none;
+    position: relative;
+    top: 200px;
+}
+
+.my-spinner {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    display: inline-block;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.spinner.show{
+    display : block;
 }

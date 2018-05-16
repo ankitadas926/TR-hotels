@@ -5,20 +5,11 @@ var filter = {
     "userRating" : null,
     "minCost" : null
 }
-var hotelSearched = document.getElementsByName("hotel-name")[0];
+var searchedHotel = document.getElementsByName("hotel-name")[0];
 var searchedStar = document.querySelectorAll(".star-filter li");
 
-function filterByName(searchedHotelName){
-    filter.hotelName = searchedHotelName;
-    filteredHotels=getfilteredHotel();
-    pageBlock =0;
-    pageNumberCreator(pageBlock);  
-}
-
-hotelSearched.addEventListener("keyup", function (event) {
-    if (event.keyCode == 13) {
-        filterByName(hotelSearched.value.toLowerCase().trim());
-    }
+searchedHotel.addEventListener("keyup", function (event) {
+    filterByName(searchedHotel.value.toLowerCase().trim());
 });
 
 
@@ -27,10 +18,14 @@ filterStarHTML.forEach(function(elem){
     elem.addEventListener("change",filterByStar);
 });
 
+function filterByName(searchedHotelName){
+    filter.hotelName = searchedHotelName;
+    filteredHotels=getfilteredHotel();
+    pageBlock =0;
+    pageNumberCreator(pageBlock);  
+}
+
 function filterByStar(){
-    
-    var hotels=mydata.Establishments;
-    var searchedHotels = [];
     var selectedStar=[];
     pageBlock =0;
 
@@ -42,8 +37,6 @@ function filterByStar(){
         }
      }
     filter.star=selectedStar;
-
-    
       
     filteredHotels=getfilteredHotel();  
     pageNumberCreator(pageBlock);  
@@ -52,6 +45,7 @@ function filterByStar(){
 function getfilteredHotel(){
    var hotels = mydata.Establishments;
    var filteredHotels = [];
+   
    // filter by name
 
    if(filter.hotelName !=null){
