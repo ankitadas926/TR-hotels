@@ -1,81 +1,82 @@
 var filter = {
-    "hotelName" : null,
-    "star" : [],
-    "trpRating": null,
-    "userRating" : null,
-    "minCost" : null
-}
-var searchedHotel = document.getElementsByName("hotel-name")[0];
-var searchedStar = document.querySelectorAll(".star-filter li");
 
-searchedHotel.addEventListener("keyup", function (event) {
-    filterByName(searchedHotel.value.toLowerCase().trim());
-});
+    result : [],
+    set : function(data){
+        
+        filter.filteredHotels = data.hotels || [],
+        filter.hotelName = null,
+        filter.star = [],
+        filter.trpRating = null,
+        filter.userRating = null,
+        filter.minCost = null
+        
+    },
 
+    bind : function(){
 
-var filterStarHTML = document.querySelectorAll(".star-filter li>input");
-filterStarHTML.forEach(function(elem){
-    elem.addEventListener("change",filterByStar);
-});
+        elements.searchedHotel.addEventListener("keyup", function (event) {
+            filterByName(searchedHotel.value.toLowerCase().trim());
+        });
 
-function filterByName(searchedHotelName){
-    filter.hotelName = searchedHotelName;
-    filteredHotels=getfilteredHotel();
-    pageBlock =0;
-    pageNumberCreator(pageBlock);  
-}
-
-function filterByStar(){
-    var selectedStar=[];
-    pageBlock =0;
-
+        elements.searchedStar.forEach(function(elem){
+            elem.addEventListener("change",filterByStar);
+        });
+    },
     
-    for(var i= 0; i<searchedStar.length;i++){
-        var starCheckBox = searchedStar[i].getElementsByTagName("input")[0];
-        if(starCheckBox.checked == true){
-           selectedStar.push(starCheckBox.value);
-        }
-     }
-    filter.star=selectedStar;
+
+    filterByName : function(searchedHotelName){
+
+        filter.hotelName = searchedHotelName;
+        if(filter.hotelName !=null){
+            for(var i=0;i<filter.filteredHotels.length;i++){
+                var hotelName=filter.filteredHotels[i].Name.toLowerCase();
+                if(hotelName.indexOf(filter.hotelName)!= -1){
+                    result.push(filter.filteredHotels[i]);            
+                }                 
+             }   
+           }
+           else{
+               result = filter.filteredHotels;
+           }
       
-    filteredHotels=getfilteredHotel();  
-    pageNumberCreator(pageBlock);  
-}
+    },
 
-function getfilteredHotel(){
-   var hotels = mydata.Establishments;
-   var filteredHotels = [];
-   
-   // filter by name
-
-   if(filter.hotelName !=null){
-    for(var i=0;i<hotels.length;i++){
-        var hotelName=hotels[i].Name.toLowerCase();
-        if(hotelName.indexOf(filter.hotelName)!= -1){
-            filteredHotels.push(hotels[i]);            
-        }                 
-     }   
-   }
-   else{
-       filteredHotels = hotels;
-   }
-
-   //filter by stars
-
-    if(filter.star.length > 0){
-        var fs = [];
-        for(var i=0;i<filteredHotels.length;i++){         
-            if(find(filter.star, filteredHotels[i].Stars)){
-                fs.push(filteredHotels[i]);
+    filterByStar : function(){
+        
+        var selectedStar = [];
+        for(var i= 0; i<elements.searchedStar.length;i++){
+            
+            if(elements.searchedStar[i].checked == true){
+                selectedStar.push(elements.searchedStar[i].value);
             }
+         }
+        filter.star=selectedStar;
+          
+        if(filter.star.length > 0){
+            for(var i=0;i<filteredHotels.length;i++){         
+                if(find(filter.star, filteredHotels[i].Stars)){
+                    result.push(filteredHotels[i]);
+                }
+            }
+            
         }
-        filteredHotels = fs;
+        
+    },
+
+    finish : function(){
+
+        filter.filteredHotels = result;
+        result = [];
+
+    },
+
+    init: function( data) {
+        filter.set(data);
     }
 
-
-   return filteredHotels;
-
+    
 }
+
 
 
 //Helper functions 

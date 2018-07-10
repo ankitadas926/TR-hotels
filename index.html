@@ -26,7 +26,10 @@
                     <li><input type="checkbox" value="3" />3 stars</li>
                     <li><input type="checkbox" value="4" />4 stars</li>
                     <li><input type="checkbox" value="5" />5 stars</li>
-                    <li><input type="checkbox" value="0" />unrated</li>
+                    <li>
+                        <input type="checkbox" value="0" id="star-unrated"/>
+                        <label for="star-unrated">unrated</label>
+                    </li>
                 </ul>
 
             </div>
@@ -61,7 +64,10 @@
                 <ul>
                     <li>Distance</li>
                     <li>Stars</li>
-                    <li>Price</li>
+                    <li>Price
+                        <div class="arrow-up"><i class="fas fa-angle-up"></i></div>
+                        <div class="arrow-down"><i class="fas fa-angle-down"></i></div>
+                    </li>
                     <li>Ratings</li>
                 </ul>
             </div>
@@ -71,26 +77,20 @@
                 <div>Please wait while we search the best Hotels for you</div>
                 <div class="my-spinner"></div>
             </div>
-            <div class="pagination">
-                
-                <div class="previous">&laquo;</div>
-                <ul class="pageNumbers"></ul>
-                <div class="next">&raquo;</div>
-                
-                
-               
-            </div>
+            <div class="pagination"></div>
         </div>
         
         
     </div>
 
 
-
+<script type="text/javascript" src="getHotels.js"></script>
+<script type="text/javascript" src="Initialize.js"></script>
 <script type="text/javascript" src="pagination.js"></script>
-<script type="text/javascript" src="TR-hotels.js"></script>
-<script type="text/javascript" src="hotels.js"></script>
+
 <script type="text/javascript" src="filters.js"></script>
+<script type="text/javascript" src="display.js"></script>
+<script type="text/javascript" src="sorting.js"></script>
 
 
 </body>
