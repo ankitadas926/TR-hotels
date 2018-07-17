@@ -10,7 +10,7 @@ var Pagination = {
     // converting initialize data
     Extend: function(data) {
         data = data || {};
-        Pagination.size = data.size || 300;
+        Pagination.size = data.size || 0;
         Pagination.page = data.page || 1;
         Pagination.step = data.step || 3;
     },
@@ -62,12 +62,6 @@ var Pagination = {
         Pagination.Start();
     },
 
-
-
-    // --------------------
-    // Script
-    // --------------------
-
     // binding pages
     Bind: function() {
         var a = Pagination.e.getElementsByTagName('a');
@@ -82,6 +76,7 @@ var Pagination = {
         Pagination.e.innerHTML = Pagination.code;
         Pagination.code = '';
         Pagination.Bind();
+        Pagination.PageChangeEvent();
     },
 
     // find pagination type
@@ -126,6 +121,15 @@ var Pagination = {
         Pagination.Buttons(e);
     },
 
+    PageChangeEvent: function(){
+        var event = new CustomEvent("pageChanged",{
+            detail :{
+                page : Pagination.page
+            }
+        });
+        document.dispatchEvent(event);
+    },
+    
     // init
     Init: function(e, data) {
         Pagination.Extend(data);
@@ -133,7 +137,6 @@ var Pagination = {
         Pagination.Start();
     }
 };
-
 
 
 

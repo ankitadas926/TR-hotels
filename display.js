@@ -4,11 +4,11 @@ var display = {
     set : function(data){
 
         display.hotels = data.hotels || [];
-        display.total = data.hotels.length || 300;
+        display.total = data.hotels.length ;
         display.quantity = data.quantity || 10;
         display.page = data.page ||1;
         display.first = (display.page - 1) * display.quantity;
-        display.last = (display.last > display.total) ? display.total : (display.page * display.quantity);
+        display.last = ((display.page * display.quantity) > display.total) ? display.total : (display.page * display.quantity);
     },
 
     create : function(){
@@ -42,7 +42,7 @@ var display = {
         return starIcon;
     },
 
-    images  : ["Images\\img1.jpg",
+    images : ["Images\\img1.jpg",
             "Images\\img2.jpg",
             "Images\\img3.jpg",
             "Images\\img4.jpg",
@@ -57,12 +57,14 @@ var display = {
     finish: function(e) {
         e.innerHTML = display.code;
         display.code = '';
+        elements.hotelNumber.innerHTML=`Showing ${filter.filteredHotels.length} of ${filter.allHotels.length} Hotels`;
     },
 
     init: function(e, data) {
         display.set(data);
         display.create();
         display.finish(e);
+
     }
 }
 
@@ -76,7 +78,7 @@ var display = {
 
 
    // showCurrentPage(pageNumber);
-   // hotelNumberHTML.innerHTML=`Showing ${filter.filteredHotels.length} of ${mydata.Establishments.length} Hotels`;    
+   //     
 
 
 
